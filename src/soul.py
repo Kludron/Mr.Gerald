@@ -25,7 +25,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    
+    print(message.content)
     if client.user in message.mentions:
         await run_command(message.channel, message.author, message.content)
 
