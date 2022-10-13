@@ -25,17 +25,16 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    if message.content.startswith(CMD_PREFIX):
+    print(message.content)
+    if client.user in message.mentions:
         await run_command(message.channel, message.author, message.content)
-    elif "hi gerald" in message.content.lower():
-        await message.channel.send(f"Hi there {message.author.nick}!")
 
 @client.event
 async def on_scheduled_event_create(event):
     pass
 
 async def run_command(channel: discord.Message.channel, author: discord.Message.author, content: discord.Message.content):
-    cmd = content.lstrip(CMD_PREFIX).strip()
+    cmd = content.strip(client.user.mention).strip()
     print(f"Command: {cmd}")
     if cmd == "hi":
         await channel.send(f"Hello {author.nick}!")
