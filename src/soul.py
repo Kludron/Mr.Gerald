@@ -34,7 +34,7 @@ async def on_scheduled_event_create(event):
     pass
 
 async def run_command(channel: discord.Message.channel, author: discord.Message.author, content: discord.Message.content):
-    cmd = content.strip("@Mr. Gerald").strip()
+    cmd = content.strip(client.user.mention).strip()
     print(f"Command: {cmd}")
     if cmd == "hi":
         await channel.send(f"Hello {author.nick}!")
