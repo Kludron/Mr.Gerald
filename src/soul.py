@@ -48,7 +48,5 @@ async def run_command(channel: discord.Message.channel, author: discord.Message.
 
         print(f"Sending QOTD: {question}")
         await channel.send(question)
-    else:
-        await channel.send("I don't know that command...")
 
 client.run(TOKEN)
