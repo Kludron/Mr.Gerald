@@ -8,6 +8,7 @@ dotenv.load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 CMD_PREFIX = "$mg"
+QOTD_ROLE = "<@&941465848873386004>"
 
 questions = [q.strip() for q in open('data/qotd.list', 'r').readlines()]
 questions.reverse()
@@ -42,7 +43,7 @@ async def run_command(channel: discord.Message.channel, author: discord.Message.
         start = datetime(day=9, month=10, year=2022)
 
         try:
-            question = questions[(start - datetime.now()).days]
+            question = QOTD_ROLE + ' ' + questions[(start - datetime.now()).days]
         except IndexError:
             question = "I'm all out of questions!"
 
