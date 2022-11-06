@@ -43,6 +43,7 @@ async def run_command(channel: discord.Message.channel, author: discord.Message.
         start = datetime(day=9, month=10, year=2022)
 
         try:
+            # Todo fix this so that it's dynamic...
             question = QOTD_ROLE + ' ' + questions[(start - datetime.now()).days]
         except IndexError:
             question = "I'm all out of questions!"
