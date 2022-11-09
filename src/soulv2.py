@@ -17,7 +17,7 @@ if not TOKEN:
     logging.error('Discord API Token not found') 
     exit()
 
-# Set up Logging
+# Set up logging
 LOGDIR = os.getenv('DISCORD_LOGDIR')
 LOGFILE = 'discord.log'
 if not LOGDIR:
